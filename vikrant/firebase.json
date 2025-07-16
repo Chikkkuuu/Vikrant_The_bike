@@ -1,0 +1,41 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "vikrantebike",
+          "appId": "1:791539468122:android:73349f488cfd6a8b9b1563",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "vikrantebike",
+          "configurations": {
+            "android": "1:791539468122:android:73349f488cfd6a8b9b1563",
+            "ios": "1:791539468122:ios:3f88169dec2c22929b1563",
+            "macos": "1:791539468122:ios:3f88169dec2c22929b1563",
+            "web": "1:791539468122:web:8a00d594af584ddc9b1563",
+            "windows": "1:791539468122:web:8580a8b9304e254d9b1563"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint"
+      ]
+    }
+  ]
+}

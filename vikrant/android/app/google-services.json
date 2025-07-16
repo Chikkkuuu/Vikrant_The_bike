@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "791539468122",
+    "firebase_url": "https://vikrantebike-default-rtdb.firebaseio.com",
+    "project_id": "vikrantebike",
+    "storage_bucket": "vikrantebike.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791539468122:android:73349f488cfd6a8b9b1563",
+        "android_client_info": {
+          "package_name": "com.example.vikrant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOOJemgqsv625hV72JSm1j99BIbGi0WM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
