@@ -11,18 +11,6 @@ except ImportError:
     firebase_enabled = False
     print("⚠️ Pyrebase not installed. Firebase disabled.")
 
-# Firebase configuration
-firebase_config = {
-    "apiKey": "AIzaSyA9ewthDdft9qWK6bn4r1FB0GCGhgYq_T8",
-    "authDomain": "vikrantebike.firebaseapp.com",
-    "databaseURL": "https://vikrantebike-default-rtdb.firebaseio.com",
-    "projectId": "vikrantebike",
-    "storageBucket": "vikrantebike.appspot.com",
-    "messagingSenderId": "791539468122",
-    "appId": "1:791539468122:web:be50267c12e44dcb9b1563",
-    "measurementId": "G-H5ETXRECL2"
-}
-
 if firebase_enabled:
     try:
         firebase = pyrebase.initialize_app(firebase_config)
