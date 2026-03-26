@@ -68,4 +68,3 @@ Vikrant_The_bike/
 * **Developer:** Ritul Raj Bhakat (Firmware Developer)
 * **Achievement:** Top ranking in the national-level **SIEP E-Bike Challenge**.
 * **Contact:** [ritulraj384@gmail.com](mailto:ritulraj384@gmail.com) | [LinkedIn](https://www.linkedin.com/in/ritul-raj-bhakat-521202277/) | [Github](https://github.com/Chikkkuuu) | [Portfolio](https://ritulrajbhakatportfolio.vercel.app/)
-
