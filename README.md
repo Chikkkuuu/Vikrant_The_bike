@@ -5,13 +5,13 @@ Vikrant is an advanced, IoT-integrated electric vehicle control and monitoring s
 ## System Architecture
 
 The architecture is divided into two primary execution environments: the **Actuator Control Engine** and the **Telemetry & Dashboard Service**.
-### 1. Actuator Control Engine (`bike_control.py`)
+### 1. Actuator Control Engine (`Firmware/bike_control.py`)
 This script manages high-frequency polling (~10ms) of the Firebase Real-time Database to drive physical hardware.
 * **Drive Control:** Interprets `linear_movement` values to manage motor states (Forward, Backward, Stopped) with safe duty cycles (30% for reverse, 50% for forward).
 * **Steering Logic:** Translates `angular_movement` into PWM duty cycles for servo-based steering (5% for full left, 10% for full right, 7.5% for center).
 * **Lighting & Audio:** Manages GPIO states for the headlight LED, horn buzzer, and asynchronous threading for blinking left/right indicator LEDs.
 * **Hardware Initialization:** Features a robust static initialization routine for GPIO BCM mode, PWM objects (Motor at 1kHz, Servo at 50Hz), and error-resilient pin setup.
-### 2. Telemetry & Dashboard Service (`dashboard_sensor_data.py`)
+### 2. Telemetry & Dashboard Service (`Firmware/dashboard_sensor_data.py`)
 A Flask-based web server that simulates/collects sensor data and synchronizes it with the cloud for remote monitoring.
 * **Dynamic Analytics:** Calculates real-time speed and `distance_delta` based on acceleration and time intervals ($dt = 1s$).
 * **Battery Management (BMS):** Computes `battery_percentage` using a linear mapping between 35V (0%) and 65V (100%).
@@ -29,20 +29,20 @@ The **Firebase Real-time Database** is architected to prioritize low-latency com
 The codebase is organized to separate firmware logic, mobile development, and cloud functions for maximum modularity.
 ```text
 Vikrant_The_bike/
-├── bike_control.py           # Actuator control: Motor, Servo, and GPIO logic
-├── dashboard_sensor_data.py  # Telemetry engine: Flask server and Firebase sync
-├── Database_Structure.png    # Relational mapping for NoSQL topics
-└── vikrant/                  # Flutter Mobile Command Center
-|    ├── android/ & ios/      # Native platform-specific configurations and permissions.
-|    ├── assets/              # Custom NicoMoji-Regular fonts and vehicle branding assets.
-|    ├── functions/           # Node.js backend logic for automated SOS and user auth.
-|    ├── lib/                 # Dart Source Code
-|    │   ├── data/            # Models for mapping Firebase JSON to local objects.
-|    │   ├── screens/         # UI for Dashboard, Play Mode, and Real-time Telemetry.
-|    │   ├── widgets/         # Modular components: Google Maps integration and Auth forms.
-|    │   └── main.dart        # Application entry point and Firebase initialization.
-|    └── pubspec.yaml         # Project dependencies (firebase_core, google_maps_flutter).
-└── LICENSE                   # MIT Open Source License
+├── Firmware
+|    ├── bike_control.py                  # Actuator control: Motor, Servo, and GPIO logic
+|    ├── dashboard_sensor_data.py         # Telemetry engine: Flask server and Firebase sync
+└── vikrant/                              # Flutter Mobile Command Center
+|    ├── android/ & ios/                  # Native platform-specific configurations and permissions.
+|    ├── assets/                          # Custom NicoMoji-Regular fonts and vehicle branding assets.
+|    ├── functions/                       # Node.js backend logic for automated SOS and user auth.
+|    ├── lib/                             # Dart Source Code
+|    │   ├── data/                        # Models for mapping Firebase JSON to local objects.
+|    │   ├── screens/                     # UI for Dashboard, Play Mode, and Real-time Telemetry.
+|    │   ├── widgets/                     # Modular components: Google Maps integration and Auth forms.
+|    │   └── main.dart                    # Application entry point and Firebase initialization.
+|    └── pubspec.yaml                     # Project dependencies (firebase_core, google_maps_flutter).
+└── LICENSE                               # MIT Open Source License
 ```
 
 ## Deployment and Setup
@@ -54,7 +54,8 @@ Vikrant_The_bike/
    ```bash
    pip install firebase-admin paho-mqtt
    # Place serviceAccountKey.json in the root directory
-   python bike_control.py
+   python Firmware/bike_control.py
+   python Firmware/dashboard_sensor_data.py
    ```
 2. **Flutter Mobile App:**
    ```bash
@@ -62,7 +63,6 @@ Vikrant_The_bike/
    flutter pub get
    flutter run
    ```
-
 
 ## Professional Profile
 * **Developer:** Ritul Raj Bhakat (Firmware Developer)
